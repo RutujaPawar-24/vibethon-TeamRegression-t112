@@ -37,3 +37,7 @@ if __name__ == "__main__":
         classify_now(file_path)
     else:
         print("File nahi mili! Pehle Colab mein photo upload karo.")
+ ### 3. 📝 Interactive Assessment System (`quiz_app.html`)
+- **Objective:** Provides module-wise quizzes to test user knowledge in AI and Logic.
+- **Features:** Supports MCQs, logic-based questions, and gives instant scoring feedback.
+- **Tech:** HTML5, CSS3, and JavaScript for a responsive, colorful UI.
