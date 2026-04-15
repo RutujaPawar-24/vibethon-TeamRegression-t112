@@ -37,7 +37,11 @@ if __name__ == "__main__":
         classify_now(file_path)
     else:
         print("File nahi mili! Pehle Colab mein photo upload karo.")
- ### 3. 📝 Interactive Assessment System (`quiz_app.html`)
-- **Objective:** Provides module-wise quizzes to test user knowledge in AI and Logic.
-- **Features:** Supports MCQs, logic-based questions, and gives instant scoring feedback.
-- **Tech:** HTML5, CSS3, and JavaScript for a responsive, colorful UI.
+
+### 4 Mini-Games for Concept Learning
+To simplify complex AI topics for beginners, the platform includes interactive mini-games:
+* **File:** `ai_games.html`
+* **Concept 1: Decision Trees:** Users navigate a 4-level branching logic to classify fruits based on features like shape, color, and origin.
+* **Concept 2: Neural Networks:** Simulates pattern recognition where weights are adjusted and a **Softmax Activation** function is applied to give a final prediction.
+* **Feature:** Includes a "Neural Inference" bar that shows the real-time confidence score (e.g., 92% match) for each classification.
+
