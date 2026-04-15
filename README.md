@@ -44,4 +44,14 @@ To simplify complex AI topics for beginners, the platform includes interactive m
 * **Concept 1: Decision Trees:** Users navigate a 4-level branching logic to classify fruits based on features like shape, color, and origin.
 * **Concept 2: Neural Networks:** Simulates pattern recognition where weights are adjusted and a **Softmax Activation** function is applied to give a final prediction.
 * **Feature:** Includes a "Neural Inference" bar that shows the real-time confidence score (e.g., 92% match) for each classification.
+  # 🤖 AI Integrated Learning Lab
+
+An interactive educational platform designed to simplify complex Artificial Intelligence concepts through gamification, real-time logic visualization, and assessment modules.
+### 5. Leaderboard & Gamification
+Engaging users through professional reward systems:
+* **XP System:** Earn Experience Points for every correct logic path and quiz answer.
+* **Streaks:** Tracks consecutive days of learning to encourage consistency.
+* **Digital Badges:** Unlock badges like `AI Mechanic`, `Scholar`, and `Expert` based on performance milestones.
+
+
 
