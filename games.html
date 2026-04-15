@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Fruit Lab: Deep Learning Edition</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background: #0f172a; color: #f8fafc; text-align: center; padding: 20px; }
+        .game-card { background: #1e293b; border-radius: 24px; padding: 30px; max-width: 750px; margin: 30px auto; border: 2px solid #3b82f6; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+        .btn { background: #3b82f6; color: white; border: none; padding: 15px 30px; border-radius: 12px; cursor: pointer; margin: 10px; font-weight: bold; font-size: 1rem; transition: 0.3s; }
+        .btn:hover { background: #2563eb; transform: translateY(-2px); }
+        
+        /* Neural Progress Bar Style */
+        .nn-container { margin-top: 20px; display: none; background: #000; padding: 15px; border-radius: 15px; text-align: left; }
+        .nn-bar-bg { width: 100%; height: 10px; background: #334155; border-radius: 5px; margin: 8px 0; }
+        .nn-bar-fill { height: 100%; background: #10b981; border-radius: 5px; transition: width 1s ease-in-out; }
+        
+        .logic-terminal { background: #000; color: #10b981; padding: 15px; border-radius: 12px; margin-top: 20px; text-align: left; font-family: 'Consolas', monospace; font-size: 0.85rem; border: 1px solid #059669; height: 120px; overflow-y: auto; }
+        .result-display { font-size: 2.2rem; color: #fbbf24; font-weight: bold; margin: 20px 0; }
+    </style>
+</head>
+<body>
+    <h1 style="color: #60a5fa;">🧠 AI Integrated Lab (Section 3.4)</h1>
+    <p>Combining Decision Trees (Structure) with Neural Networks (Confidence)</p>
+
+    <div class="game-card">
+        <h2 id="question">Step 1: Is the fruit round in shape?</h2>
+        
+        <div id="controls">
+            <button class="btn" onclick="process('yes')">YES</button>
+            <button class="btn" onclick="process('no')">NO</button>
+        </div>
+
+        <div id="nn-section" class="nn-container">
+            <div style="color: #60a5fa; font-weight: bold; margin-bottom: 5px;">Neural Network Inference:</div>
+            <div style="font-size: 0.8rem;">Processing Weights...</div>
+            <div class="nn-bar-bg"><div id="nnFill" class="nn-bar-fill" style="width: 0%;"></div></div>
+            <div id="confidence" style="font-size: 0.9rem; color: #10b981;">Confidence: 0%</div>
+        </div>
+
+        <div class="result-display" id="result"></div>
+
+        <div class="logic-terminal" id="terminal">
+            > Initializing Hybrid AI System...<br>
+            > Layer 0: Input Node [Shape] active.
+        </div>
+
+        <button class="btn" style="background: #475569; display: none;" id="reset" onclick="resetGame()">New Prediction</button>
+    </div>
+
+    <script>
+        let step = 1;
+        let path = "";
+
+        const q = document.getElementById('question');
+        const term = document.getElementById('terminal');
+        const res = document.getElementById('result');
+        const ctrl = document.getElementById('controls');
+        const reset = document.getElementById('reset');
+        const nnSection = document.getElementById('nn-section');
+        const nnFill = document.getElementById('nnFill');
+        const confText = document.getElementById('confidence');
+
+        function process(choice) {
+            path += choice;
+            
+            if (step === 1) {
+                q.innerText = "Step 2: Is the color Red or Yellow?";
+                term.innerHTML += `<br>> [Decision Tree] Split by Shape: ${choice}`;
+            } 
+            else if (step === 2) {
+                q.innerText = "Step 3: Is the skin smooth?";
+                term.innerHTML += `<br>> [Feature Extraction] Color bias recorded.`;
+            }
+            else if (step === 3) {
+                q.innerText = "Step 4: Does it grow on a tree?";
+                term.innerHTML += `<br>> [Weight Adjustment] Texture analysis complete.`;
+            }
+            else if (step === 4) {
+                ctrl.style.display = 'none';
+                nnSection.style.display = 'block';
+                q.innerText = "Inference in progress...";
+                
+                // Neural Simulation Timing
+                setTimeout(() => {
+                    let conf = Math.floor(Math.random() * 15) + 84; // 84-98%
+                    nnFill.style.width = conf + "%";
+                    confText.innerText = "Final Confidence Score: " + conf + "%";
+                    showFinalResult(path);
+                    reset.style.display = 'inline-block';
+                }, 1000);
+            }
+            step++;
+            term.scrollTop = term.scrollHeight;
+        }
+
+        function showFinalResult(p) {
+            term.innerHTML += `<br>> [Neural Layer] Softmax Activation applied.`;
+            if(p === "yesyesyesyes") res.innerHTML = "🍎 Result: RED APPLE";
+            else if(p === "yesyesnoyes") res.innerHTML = "🍊 Result: ORANGE";
+            else if(p === "noyesyesyes") res.innerHTML = "🍌 Result: BANANA";
+            else if(p === "noyesnoyes") res.innerHTML = "🍍 Result: PINEAPPLE";
+            else res.innerHTML = "🍓 Result: STRAWBERRY";
+            
+            q.innerText = "Classification Complete!";
+            term.innerHTML += `<br>> <span style="color:#fbbf24">Match Found: ${res.innerText.split(':')[1]}</span>`;
+        }
+
+        function resetGame() {
+            step = 1; path = "";
+            q.innerText = "Step 1: Is the fruit round in shape?";
+            res.innerHTML = "";
+            nnSection.style.display = 'none';
+            nnFill.style.width = "0%";
+            term.innerHTML = "> Re-initializing...<br>> Layer 0: Input Node [Shape] active.";
+            ctrl.style.display = 'block';
+            reset.style.display = 'none';
+        }
+    </script>
+</body>
+</html>
